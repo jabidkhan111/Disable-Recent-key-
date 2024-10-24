@@ -1,0 +1,13 @@
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        ActivityManager activityManager = (ActivityManager)
+                getApplicationContext()
+                        .getSystemService(Context.ACTIVITY_SERVICE);
+
+        activityManager.moveTaskToFront(getTaskId(), 0);
+    }
